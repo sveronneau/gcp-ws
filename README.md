@@ -1,2 +1,2 @@
 # gcp-ws
-GKE Demos related Files
+GKE Demos Related Files
