@@ -1,0 +1,6 @@
+metadata:
+    annotations:
+    cloud.google.com/load-balancer-type: "Internal"
+    
+type: LoadBalancer
+loadBalancerIP: reserved_internal_ip
