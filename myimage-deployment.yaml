@@ -1,0 +1,31 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: gcp-ws-deployment
+  namespace: default
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: gcp-ws-deployment
+    spec:
+      containers:
+        - name: gcp-ws-container
+          image: gcr.io/cloudforms-182018/github.com/sveronneau/gcp-ws:6f635620365a47ffc4c212a37cf543dcf1c55f72
+          ports:
+          - containerPort: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: gcp-ws-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: gcp-ws-deployment
+  ports:
+    - port: 80
+      targetPort: 80
