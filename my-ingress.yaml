@@ -8,9 +8,9 @@ spec:
       paths:
       - path: /*
         backend:
-          serviceName: apache-httpd-service
-          servicePort: 80
-      - path: /wassup
-        backend:
           serviceName: nginx-2-service
+          servicePort: 80
+      - path: /apache
+        backend:
+          serviceName: apache-httpd-service
           servicePort: 80
