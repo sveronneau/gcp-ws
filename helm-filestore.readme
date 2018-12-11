@@ -12,3 +12,14 @@ kubectl apply -f gcp-ws/rbac-config-tiller.yaml
 helm init --service-account tiller
 kubectl get pods --all-namespaces
 #
+gcloud beta filestore instances list
+#
+helm repo update
+helm install stable/nfs-client-provisioner --name nfs-cp --set nfs.server=${FSADDR} --set nfs.path=/my_share
+watch kubectl get po -l app=nfs-client-provisioner
+kubectl get sc
+#
+helm install --name postgresql --set persistence.storageClass=nfs-client stable/postgresql
+watch kubectl get po -l app=postgresql
+Ctrl-C when ‘Running’
+#
