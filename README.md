@@ -1,2 +1,2 @@
 # gcp-ws
-GCP Workshop related files
+GKE Demos related Files
