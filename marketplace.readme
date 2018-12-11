@@ -1,0 +1,3 @@
+gcloud container clusters get-credentials standard-cluster-1 --zone zone --project cloudforms-182018
+kubectl -ndefault exec $(kubectl -ndefault get pod -oname | sed -n /\\/jenkins-1-jenkins-deployment/s.pods\\?/..p) cat /var/jenkins_home/secrets/initialAdminPassword
+echo https://$(kubectl -ndefault get ingress -l "app.kubernetes.io/name=jenkins-1" -ojsonpath="{.items[0].status.loadBalancer.ingress[0].ip}")/
