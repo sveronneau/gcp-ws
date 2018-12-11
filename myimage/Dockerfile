@@ -1,5 +1,5 @@
 #Download base Ubuntu image
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 # Update Software repository
 RUN apt-get update
