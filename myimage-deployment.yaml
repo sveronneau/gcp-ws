@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: gcp-ws-container
-          image: gcr.io/cloudforms-182018/github.com/sveronneau/gcp-ws:6f635620365a47ffc4c212a37cf543dcf1c55f72
+          image: YOUR_IMAGE_URL
           ports:
           - containerPort: 80
 ---
