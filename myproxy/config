@@ -1,0 +1,12 @@
+# Allow Kubernetes API access only
+actionsfile /etc/privoxy/k8s-only.action
+# Rewrite https://CLUSTER_IP to https://kubernetes.default
+filterfile /etc/privoxy/k8s-rewrite-external.filter
+# Don't show the pod name in errors
+hostname k8s-privoxy
+# Bind to all interfaces, port :8118
+listen-address  :8118
+# User cannot click-through a block
+enforce-blocks 1
+# Allow more than one outbound connection
+tolerate-pipelining 1
