@@ -1,0 +1,4 @@
+CLIENT-HEADER-FILTER: k8s-rewrite-external\
+ Rewrite https://CLUSTER_IP/ to https://kubernetes.default/
+s@(CONNECT) CLUSTER_IP:443\
+ (HTTP/\d\.\d)@$1 kubernetes.default:443 $2@ig
