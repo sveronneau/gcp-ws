@@ -5,7 +5,7 @@ set -o pipefail
 set -o nounset
 
 # Get the external cluster IP
-EXTERNAL_IP=$(curl -SsL https://kubernetes.default/api |
+EXTERNAL_IP=$(curl -SsL --insecure https://kubernetes.default/api |
  jq -r '.serverAddressByClientCIDRs[0].serverAddress')
 
 # Replace CLUSTER_IP in the rewrite filter and action file
