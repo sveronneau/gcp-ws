@@ -1,0 +1,8 @@
+# Block everything...
+{+block{Not Kubernetes}}
+/
+
+# ... except the external k8s endpoint, which you rewrite (see
+# k8s-rewrite-external.filter).
+{+client-header-filter{k8s-rewrite-external} -block{Kubernetes}}
+CLUSTER_IP/
